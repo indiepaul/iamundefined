@@ -1,5 +1,5 @@
 backend:
-  name: iamundefined
+  name: github
   repo: indiepaul/iamundefined
 
 media_folder: "static/uploads"
