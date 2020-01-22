@@ -5,9 +5,8 @@ excerpt: >-
   success, people around me say I'm good, so why can't I shake this feeling that
   I
 date: 2020-01-01T19:45:07.836Z
+thumbnail: /uploads/dealing with my imposter syndrome.jpg
 ---
-![featured image](/uploads/dealing with my imposter syndrome.jpg "Featured Image")
-
 I am good at what I do, I’ve been doing it for a long time, I’ve had much success, people around me say I’m good, so why can’t I shake this feeling that I am not good enough.
 
 I compare myself to others, most of the time people I think are better than me, and feel inadequate. Two people in particular, we used to be classmates, they probably haven’t given me a second thought since. Every time I think about sharing something their faces come up and I start wondering what they will think, that it’s not good enough and they will ridicule me. I don’t even know where those feelings came from because they have never even acted that way about anything I ever did.
