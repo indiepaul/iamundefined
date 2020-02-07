@@ -6,6 +6,7 @@ excerpt: >-
   I
 date: 2020-01-01T19:45:07.836Z
 thumbnail: /uploads/dealing with my imposter syndrome.jpg
+category: Life
 ---
 I am good at what I do, I’ve been doing it for a long time, I’ve had much success, people around me say I’m good, so why can’t I shake this feeling that I am not good enough.
 
@@ -23,4 +24,4 @@ So 1st January 2020, I am starting this site as my leap of faith, and I just pai
 
 I will not let anyone limit what I can be. Especially myself.
 
-I will be anything I want to be, I am **Undefined**<< (f*or the non programming people: [undefined](https://en.wikipedia.org/wiki/Undefined_value) here meaning a [variable](https://en.wikipedia.org/wiki/Variable_(computer_science)) that has not been initialized yet but can be set to any value)*.
+I will be anything I want to be, I am **Undefined**<< *(for the non programming people: [undefined](https://en.wikipedia.org/wiki/Undefined_value) here meaning a [variable](https://en.wikipedia.org/wiki/Variable_(computer_science)) that has not been initialized yet but can be set to any value)*.

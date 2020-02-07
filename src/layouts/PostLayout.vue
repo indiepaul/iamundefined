@@ -44,11 +44,9 @@
       <h3>Documentation</h3>
     </div>-->
 
-    <div class="tm-main uk-section uk-section-default">
-      <div class="uk-container uk-container-small uk-position-relative">
-        <slot/>
-
-        <!-- <div class="tm-sidebar-right uk-visible@l">
+    <slot/>
+    <Footer/>
+    <!-- <div class="tm-sidebar-right uk-visible@l">
           <div uk-sticky="offset: 160">
             <ul
               class="uk-nav uk-nav-default tm-nav uk-nav-parent-icon"
@@ -87,9 +85,7 @@
               </li>
             </ul>
           </div>
-        </div>-->
-      </div>
-    </div>
+    </div>-->
 
     <div id="offcanvas" ref="offcanvas" uk-offcanvas="mode: reveal; overlay: true">
       <div class="uk-offcanvas-bar">
@@ -126,3 +122,12 @@ query {
     padding: 5px;
 }
 </style>
+
+<script>
+import Footer from "../components/Footer";
+export default {
+  components: {
+    Footer
+  }
+};
+</script>

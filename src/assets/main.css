@@ -21,19 +21,43 @@ h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6, .uk-head
 
 main {
     margin: 0 auto;
-    max-width: 760px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+@media (min-width: 640px) {
+    
+    main {
+        margin: 0 auto;
+        max-width: 760px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
+em {
+    color: inherit;
+}
+
+a, a:hover {
+    color: inherit;
+}
+
+article a {
+    text-decoration: underline;
+    font-weight: 200;
+}
+article a:hover {
+    font-weight: 300;
+}
+
+
 header .uk-navbar-container {
-    margin-bottom: 20px;
-    background: linear-gradient(to left, #745fb5, #9066b8);
-    /* background: linear-gradient(to left, #28a5f5, #1e87f0) */
+    /* background: linear-gradient(to left, #745fb5, #9066b8); */
+    background: linear-gradient(0.1turn, #007b4d, #18b77b);
 }
 
 header .uk-navbar-container:not(.uk-navbar-transparent) {
-    background: #f8f8f896;
+    background: rgba(224, 224, 224, 0.61);
 }
 
 header .uk-navbar-nav>li>a, header .uk-navbar-item:not(.uk-logo), header .uk-navbar-toggle {
@@ -69,6 +93,19 @@ header .uk-navbar-nav>li>a:hover::before {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px
+}
+.uk-logo {
+    color: rgba(255, 255, 255, 1);
+}
+div.uk-navbar-right > ul > li > a.active {
+    color: rgba(255,255,255,1);
+}
+.uk-logo, div.uk-sticky.uk-sticky-below.uk-sticky-fixed > nav > div.uk-navbar-right > ul > li:nth-child(1) > a {
+    color: rgba(25,25,25,1);
+
+}
+.uk-navbar-nav>li>a {
+    color: #999;
 }
 
 @media (min-width:640px) {
@@ -245,6 +282,24 @@ body {
     width: 200px
 }
 
+nav > div.uk-navbar-right > ul > li > a.active--exact {
+    color: #fff;
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    word-break: normal;
+}
 @media (min-width:960px) {
     .tm-sidebar-left+.tm-main {
         padding-left: 240px
