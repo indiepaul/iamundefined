@@ -59,8 +59,8 @@
             <a href="https://iamundefined.xyz/">I am Undefined</a>
           </p>
 
-          <p class="powered-by-wordpress">
-            <a href="https://wordpress.org/">Powered by JAMStack</a>
+          <p class="powered-by-jamstack">
+            <a href="https://jamstack.org/">Powered by JAMStack</a>
           </p>
         </div>
 
@@ -160,7 +160,7 @@ ul.footer-social li {
   font-weight: 600;
   margin: 0;
 }
-.powered-by-wordpress {
+.powered-by-jamstack {
   margin: 0 0 0 2.4rem;
 }
 .to-the-top-long {
