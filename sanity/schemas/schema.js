@@ -9,7 +9,7 @@ import blockContent from './blockContent'
 import category from './category'
 import post from './post'
 import author from './author'
-import excerptText from './objects/excerptText'
+import excerptText from './excerptText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
