@@ -16,7 +16,7 @@ export default {
     },
     {
       name: 'excerpt',
-      type: 'excerptPortableText',
+      type: 'excerptText',
       title: 'Excerpt',
       description:
         'This ends up on summary pages, on Google, when people share your post in social media.'
