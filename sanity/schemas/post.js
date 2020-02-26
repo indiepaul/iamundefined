@@ -6,12 +6,26 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      description: 'Titles should be catchy, descriptive, and not too long'
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent'
+    },
+    {
+      name: 'excerpt',
+      type: 'excerptPortableText',
+      title: 'Excerpt',
+      description:
+        'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
         maxLength: 96
@@ -21,7 +35,7 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'}
+      to: { type: 'author' }
     },
     {
       name: 'mainImage',
@@ -35,17 +49,12 @@ export default {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent'
     }
   ],
 
@@ -56,7 +65,7 @@ export default {
       media: 'mainImage'
     },
     prepare(selection) {
-      const {author} = selection
+      const { author } = selection
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`
       })
