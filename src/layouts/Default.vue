@@ -45,7 +45,7 @@
     </div>-->
 
     <div class="tm-main uk-section uk-section-default">
-      <div class="uk-container uk-container-small uk-position-relative">
+      <div class="uk-container uk-container-medium uk-position-relative">
         <slot/>
 
         <!-- <div class="tm-sidebar-right uk-visible@l">
@@ -119,10 +119,10 @@ query {
 
 <style>
 .uk-offcanvas-close {
-    position: initial;
-    z-index: initial;
-    top: initial;
-    right: initial;
-    padding: 5px;
+  position: initial;
+  z-index: initial;
+  top: initial;
+  right: initial;
+  padding: 5px;
 }
 </style>

@@ -16,26 +16,20 @@ module.exports = {
       ]
     }
   },
-
+  templates: {
+    BlogPost: '/posts/:slug__current'
+  },
   plugins: [
     { use: 'gridsome-plugin-uikit' },
     {
-      use: '@gridsome/source-filesystem',
+      use: 'gridsome-source-sanity',
       options: {
-        path: 'posts/*.md',
-        typeName: 'Post',
-        remark: {
-          plugins: [
-            // ...local plugins
-          ]
-        }
+        projectId: 'uv17twsv',
+        dataset: 'production',
+        typeName: 'Blog',
+        overlayDrafts: false,
+        watchMode: false
       }
-    },
-    {
-      use: `gridsome-plugin-netlify-cms`,
-      options: {
-        publicPath: `/admin`
-      }
-    },
+    }
   ]
 }

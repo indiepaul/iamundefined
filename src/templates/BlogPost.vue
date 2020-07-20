@@ -6,12 +6,12 @@
 
     <div
       class="cover-header screen-height"
-      v-bind:style="{ backgroundImage: 'linear-gradient(rgba(0, 123, 77,0.6), rgba(24, 127, 79,0.6)), url(\'' + $page.post.thumbnail + '\')', color: 'red' }"
+      v-bind:style="{ backgroundImage: 'linear-gradient(rgba(0, 123, 77,0.6), rgba(24, 127, 79,0.6)), url(\'' + $page.blogPost.mainImage.asset.url + '\')' }"
     >
       <div class="cover-wrapper screen-height">
         <div class="cover-inner">
           <header class="entry-header">
-            <h1>{{ $page.post.title }}</h1>
+            <h1>{{ $page.blogPost.title }}</h1>
             <div class="post-meta-wrapper post-meta-single post-meta-single-top">
               <ul class="post-meta">
                 <li class="post-date meta-wrapper">
@@ -19,11 +19,7 @@
                     <span class="screen-reader-text">Post date</span>
                     <span uk-icon="calendar"></span>
                   </span>
-                  <span class="meta-text">
-                    <a
-                      href="https://iamundefined.xyz/2020/01/01/dealing-with-my-imposter-syndrome/"
-                    >{{ $page.post.date }}</a>
-                  </span>
+                  <span class="meta-text">{{ $page.blogPost.publishedAt }}</span>
                 </li>
               </ul>
               <!-- .post-meta -->
@@ -36,15 +32,16 @@
       <article>
         <div class="tm-main uk-section uk-section-default">
           <div class="uk-container uk-container-small uk-position-relative article-container">
-            <div class="article__content" ref="main" v-html="$page.post.content"/>
+            <div class="article__content" ref="main">
+              <block-content :blocks="$page.blogPost._rawBody"/>
+            </div>
             <hr>
             <p class="home-links">
               <span class="meta-icon">
-                <span class="screen-reader-text">Post date</span>
                 <span uk-icon="tag"></span>
               </span>
               <span class="meta-text">
-                <a href="#">{{ $page.post.category }}</a>
+                <a href="#">{{ $page.blogPost.categories[0].title }}</a>
               </span>
             </p>
           </div>
@@ -54,18 +51,6 @@
   </Layout>
 </template>
 
-<page-query>
-query Post ($path: String!) {
-    post (path: $path) {
-        id
-        date(format: "MMMM DD, Y")
-        title
-        content
-        category
-        thumbnail
-    }
-}
-</page-query>
 
 <style scoped>
 .progress-bar-container {
@@ -151,6 +136,7 @@ query Post ($path: String!) {
 </style>
 
 <script>
+import BlockContent from "~/components/BlockContent";
 import Layout from "~/layouts/PostLayout.vue";
 import Vue from "vue";
 Vue.directive("scroll", {
@@ -165,6 +151,7 @@ Vue.directive("scroll", {
 });
 export default {
   components: {
+    BlockContent,
     Layout
   },
   methods: {
@@ -190,3 +177,27 @@ export default {
   }
 };
 </script>
+
+<page-query>
+query Post ($path: String!) {
+    blogPost (path: $path) {
+        id
+        slug {
+          current
+        }
+        title
+        mainImage {
+          asset {
+            _id
+            url
+          }
+        }
+        _rawBody
+        publishedAt(format: "DD MMM, Y")
+        categories {
+          id
+          title
+        }
+    }
+}
+</page-query>

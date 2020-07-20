@@ -28,7 +28,7 @@ main {
     
     main {
         margin: 0 auto;
-        max-width: 760px;
+        max-width: 960px;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -148,6 +148,10 @@ div.uk-navbar-right > ul > li > a.active {
     max-width: 700px
 }
 
+.uk-container-medium {
+    max-width: 960px
+}
+
 .uk-container-large {
     max-width: 1600px
 }
@@ -248,6 +252,9 @@ body {
 .tm-main .uk-container {
     padding-left: 15px;
     padding-right: 15px
+}
+.tm-main.uk-section.uk-section-default {
+    padding-top: 10px;
 }
 
 @media (min-width:640px) {
