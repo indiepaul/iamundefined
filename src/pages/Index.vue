@@ -76,7 +76,7 @@ export default {
 
 <page-query>
 query {
-  posts: allBlogPost {
+  posts: allBlogPost(sortBy: "publishedAt") {
     edges {
       node {
         id
