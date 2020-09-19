@@ -10,13 +10,14 @@
           <div class="text_content post_content animated fadeIn" style="opacity: 1;">
             <p>
               My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.
-              <br>On Mondays, I enjoy waking up after 8 and doing nothing for the entire morning.
+              <br/>On Mondays, I enjoy waking up after 8 and doing nothing for the entire morning.
             </p>
             <ul>
               <a
                 href="https://github.com/indiepaul/"
                 target="_blank"
               >GitHub</a> |
+              <a href="https://twitter.com/IamUndefin3d" target="_blank">Twitter</a> |
               <a href="mailto:null@iamundefined.xyz" target="_blank">Email</a>
             </ul>
             <p>Latest posts, and I hope you enjoy this site.</p>
@@ -27,10 +28,7 @@
         </div>
       </div>
     </div>
-    <!-- 
-    <div class="text">
-      
-    </div>-->
+    
     <div
       v-for="edge in $page.posts.edges"
       :key="edge.node.id"
@@ -52,7 +50,6 @@
           </div>
         </div>
         <div class="uk-card-body">
-          <!-- <div class="content" v-html="edge.node._rawExcerpt"/> -->
           <block-content :blocks="edge.node._rawExcerpt"/>
         </div>
         <div class="uk-card-footer">

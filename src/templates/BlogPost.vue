@@ -1,4 +1,4 @@
-// <template>
+<template>
   <Layout>
     <div class="progress-bar-container">
       <div class="progress-bar-container__progress" ref="progress"></div>
@@ -22,7 +22,6 @@
                   <span class="meta-text">{{ $page.blogPost.publishedAt }}</span>
                 </li>
               </ul>
-              <!-- .post-meta -->
             </div>
           </header>
         </div>
@@ -35,7 +34,7 @@
             <div class="article__content" ref="main">
               <block-content :blocks="$page.blogPost._rawBody"/>
             </div>
-            <hr>
+            <hr/>
             <p class="home-links">
               <span class="meta-icon">
                 <span uk-icon="tag"></span>
