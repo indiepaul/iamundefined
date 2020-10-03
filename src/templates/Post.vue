@@ -6,12 +6,12 @@
 
     <div
       class="cover-header screen-height"
-      v-bind:style="{ backgroundImage: 'linear-gradient(rgba(0, 123, 77,0.6), rgba(24, 127, 79,0.6)), url(\'' + $page.blogPost.mainImage.asset.url + '\')' }"
+      v-bind:style="{ backgroundImage: 'linear-gradient(rgba(0, 123, 77,0.6), rgba(24, 127, 79,0.6)), url(\'' + post.featured_image.url + '\')' }"
     >
       <div class="cover-wrapper screen-height">
         <div class="cover-inner">
           <header class="entry-header">
-            <h1>{{ $page.blogPost.title }}</h1>
+            <h1>{{ $page.post.title }}</h1>
             <div class="post-meta-wrapper post-meta-single post-meta-single-top">
               <ul class="post-meta">
                 <li class="post-date meta-wrapper">
@@ -19,7 +19,7 @@
                     <span class="screen-reader-text">Post date</span>
                     <span uk-icon="calendar"></span>
                   </span>
-                  <span class="meta-text">{{ $page.blogPost.publishedAt }}</span>
+                  <span class="meta-text">{{ post.published }}</span>
                 </li>
               </ul>
             </div>
@@ -32,7 +32,7 @@
         <div class="tm-main uk-section uk-section-default">
           <div class="uk-container uk-container-small uk-position-relative article-container">
             <div class="article__content" ref="main">
-              <block-content :blocks="$page.blogPost._rawBody"/>
+                  <div v-html="post.body"></div>
             </div>
             <hr/>
             <p class="home-links">
@@ -40,7 +40,7 @@
                 <span uk-icon="tag"></span>
               </span>
               <span class="meta-text">
-                <a href="#">{{ $page.blogPost.categories[0].title }}</a>
+                <a href="#">{{ post.category }}</a>
               </span>
             </p>
           </div>
@@ -135,7 +135,6 @@
 </style>
 
 <script>
-import BlockContent from "~/components/BlockContent";
 import Layout from "~/layouts/PostLayout.vue";
 import Vue from "vue";
 Vue.directive("scroll", {
@@ -150,8 +149,12 @@ Vue.directive("scroll", {
 });
 export default {
   components: {
-    BlockContent,
     Layout
+  },
+  computed: {
+    post() {
+      return this.$page.post.data
+    }
   },
   methods: {
     onScroll: function(evt, el) {
@@ -178,25 +181,17 @@ export default {
 </script>
 
 <page-query>
-query Post ($path: String!) {
-    blogPost (path: $path) {
-        id
-        slug {
-          current
-        }
-        title
-        mainImage {
-          asset {
-            _id
-            url
-          }
-        }
-        _rawBody
-        publishedAt(format: "DD MMM, Y")
-        categories {
-          id
-          title
-        }
+query Post ($id: ID!) {
+  post (id: $id) {
+    data{
+      title
+      featured_image {
+        url
+      }
+      body
+      category
+      published(format: "DD MMM, Y")
     }
+  }
 }
 </page-query>

@@ -17,18 +17,16 @@ module.exports = {
     }
   },
   templates: {
-    BlogPost: '/posts/:slug__current'
+    Post: '/posts/:id'
   },
   plugins: [
     { use: 'gridsome-plugin-uikit' },
     {
-      use: 'gridsome-source-sanity',
+      use: "@ilrock/gridsome-source-prismic",
       options: {
-        projectId: 'uv17twsv',
-        dataset: 'production',
-        typeName: 'Blog',
-        overlayDrafts: false,
-        watchMode: false
+        prismic_url: process.env.PRISMIC_API_URL,
+        prismic_token: process.env.PRISMIC_TOKEN,
+        collection_prefix: ""
       }
     }
   ]

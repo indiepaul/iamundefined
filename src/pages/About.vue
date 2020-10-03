@@ -6,7 +6,7 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">Hi there</h3>
+          <h3 class="uk-card-title">About Me</h3>
           <div class="text_content post_content animated fadeIn" style="opacity: 1;">
             <p>
               My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.

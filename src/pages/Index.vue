@@ -28,32 +28,31 @@
         </div>
       </div>
     </div>
-    
     <div
-      v-for="edge in $page.posts.edges"
-      :key="edge.node.id"
+      v-for="post in posts"
+      :key="post.id"
       class="uk-card uk-card-hover uk-card-default excerpt"
     >
-      <g-link :to="'/posts/' + edge.node.slug.current">
+      <g-link :to="'/posts/' + post.id">
         <div class="uk-card-media-top" uk-parallax="bgy: -200">
-          <!-- <g-image alt="Example image" :src="edge.node.thumbnail"/> -->
+          <!-- <g-image alt="Example image" :src="post.data.featured_image"/> -->
         </div>
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand">
-              <div class="uk-card-badge uk-label">{{ edge.node.categories[0].title}}</div>
-              <h3 class="uk-card-title uk-margin-remove-bottom">{{ edge.node.title }}</h3>
+              <div class="uk-card-badge uk-label">{{ post.data.category}}</div>
+              <h3 class="uk-card-title uk-margin-remove-bottom">{{ post.data.title }}</h3>
               <p class="uk-text-meta uk-margin-remove-top">
-                <time :datetime="edge.node.publishedAt">{{ edge.node.publishedAt }}</time>
+                <time :datetime="post.data.published">{{ post.data.published }}</time>
               </p>
             </div>
           </div>
         </div>
         <div class="uk-card-body">
-          <block-content :blocks="edge.node._rawExcerpt"/>
+          <div v-html="post.data.excerpt"></div>
         </div>
         <div class="uk-card-footer">
-          <a href="#">{{ edge.node.categories[0].title }}</a>
+          <a href="#">{{ post.data.category }}</a>
         </div>
       </g-link>
     </div>
@@ -62,36 +61,31 @@
 
 
 <script>
-import BlockContent from "~/components/BlockContent";
-
 export default {
-  components: {
-    BlockContent
+  computed: {
+    posts() {
+      return this.$page.posts.edges.map(e => e.node)
+    }
   }
 };
 </script>
 
 <page-query>
-query {
-  posts: allBlogPost(sortBy: "publishedAt") {
+query Post {
+  posts: allPost(sortBy: "data.published")
+   {
     edges {
       node {
         id
-        slug {
-          current
-        }
-        title
-        mainImage {
-          asset {
-            _id
+        data{
+          title
+          featured_image {
             url
           }
-        }
-        _rawExcerpt
-        publishedAt(format: "DD MMM, Y")
-        categories {
-          id
-          title
+          body
+          excerpt
+          category
+          published(format: "DD MMM, Y")
         }
       }
     }
