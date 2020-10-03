@@ -11,7 +11,7 @@
       <div class="cover-wrapper screen-height">
         <div class="cover-inner">
           <header class="entry-header">
-            <h1>{{ $page.post.title }}</h1>
+            <h1>{{ post.title }}</h1>
             <div class="post-meta-wrapper post-meta-single post-meta-single-top">
               <ul class="post-meta">
                 <li class="post-date meta-wrapper">
