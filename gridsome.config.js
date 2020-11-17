@@ -6,6 +6,12 @@
 
 module.exports = {
   siteName: 'I am Undefined',
+  siteDescription: 'Welcome to my Blog',
+  siteUrl: 'https:/iamundefined.xyz/',
+  metadata: {
+    author: 'Paul Mtali',
+    twitter: '@IamUndefin3d',
+  },
   transformers: {
     remark: {
       externalLinksTarget: '_blank',

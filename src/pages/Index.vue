@@ -1,23 +1,32 @@
 <template>
   <Layout>
-    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+    <div
+      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+      uk-grid
+    >
       <div class="uk-card-media-left uk-cover-container">
-        <g-image alt="Mse" src="/uploads/artyme.jpg" fit="inside"/>
+        <g-image alt="Mse" src="/uploads/artyme.jpg" fit="inside" />
       </div>
       <div>
         <div class="uk-card-body">
           <h3 class="uk-card-title">Hi there</h3>
-          <div class="text_content post_content animated fadeIn" style="opacity: 1;">
+          <div
+            class="text_content post_content animated fadeIn"
+            style="opacity: 1"
+          >
             <p>
-              My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.
-              <br/>On Mondays, I enjoy waking up after 8 and doing nothing for the entire morning.
+              My name is Paul and I'm an developer and entrepreneur, musician
+              and gamer, husband and father... among other things.
+              <br />On Mondays, I enjoy waking up after 8 and doing nothing for
+              the entire morning.
             </p>
             <ul>
-              <a
-                href="https://github.com/indiepaul/"
-                target="_blank"
-              >GitHub</a> |
-              <a href="https://twitter.com/IamUndefin3d" target="_blank">Twitter</a> |
+              <a href="https://github.com/indiepaul/" target="_blank">GitHub</a>
+              |
+              <a href="https://twitter.com/IamUndefin3d" target="_blank"
+                >Twitter</a
+              >
+              |
               <a href="mailto:null@iamundefined.xyz" target="_blank">Email</a>
             </ul>
             <p>Latest posts, and I hope you enjoy this site.</p>
@@ -40,10 +49,14 @@
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand">
-              <div class="uk-card-badge uk-label">{{ post.data.category}}</div>
-              <h3 class="uk-card-title uk-margin-remove-bottom">{{ post.data.title }}</h3>
+              <div class="uk-card-badge uk-label">{{ post.data.category }}</div>
+              <h3 class="uk-card-title uk-margin-remove-bottom">
+                {{ post.data.title }}
+              </h3>
               <p class="uk-text-meta uk-margin-remove-top">
-                <time :datetime="post.data.published">{{ post.data.published }}</time>
+                <time :datetime="post.data.published">{{
+                  post.data.published
+                }}</time>
               </p>
             </div>
           </div>
@@ -61,15 +74,95 @@
 
 
 <script>
-export default {
-  computed: {
-    posts() {
-      return this.$page.posts.edges.map(e => e.node)
+  export default {
+    computed: {
+      posts() {
+        return this.$page.posts.edges.map((e) => e.node);
+      },
+    },
+    metaInfo() {
+      return {
+        title: "I am Undefined",
+        meta: [
+          {
+            name: "author",
+            content: this.$static.metadata.author,
+          },
+          {
+            property: "title",
+            content: "I am Undefined",
+          },
+          {
+            property: "og:title",
+            content: "I am Undefined",
+          },
+          {
+            property: "twitter:title",
+            content: "I am Undefined",
+          },
+          {
+            name: "description",
+            content:
+              "My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.",
+          },
+          {
+            property: "og:description",
+            content:
+              "My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.",
+          },
+          {
+            name: "twitter:description",
+            content:
+              "My name is Paul and I'm an developer and entrepreneur, musician and gamer, husband and father... among other things.",
+          },
+          {
+            property: "og:image",
+            content: this.$static.metadata.siteUrl + "uploads/artyme.jpg",
+          },
+          {
+            name: "twitter:image",
+            content: this.$static.metadata.siteUrl + "uploads/artyme.jpg",
+          },
+          {
+            property: "og:url",
+            content: this.$static.metadata.siteUrl,
+          },
+          {
+            property: "twitter:url",
+            content: this.$static.metadata.siteUrl,
+          },
+          {
+            name: "twitter:card",
+            content: "summary_large_image",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:site_name",
+            content: this.$static.metadata.siteName,
+          },
+          {
+            name: "twitter:creator",
+            content: this.$static.metadata.twitter,
+          },
+        ],
+      };
+    },
+  };
+</script>
+<static-query>
+  query {
+    metadata {
+      author
+      siteName
+      siteUrl
+      siteDescription
+      twitter
     }
   }
-};
-</script>
-
+</static-query>
 <page-query>
 query Post {
   posts: allPost(sortBy: "data.published")
@@ -94,13 +187,13 @@ query Post {
 </page-query>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
-}
-.excerpt .content {
-  color: initial;
-}
-.excerpt a:hover {
-  text-decoration: none;
-}
+  .home-links a {
+    margin-right: 1rem;
+  }
+  .excerpt .content {
+    color: initial;
+  }
+  .excerpt a:hover {
+    text-decoration: none;
+  }
 </style>
