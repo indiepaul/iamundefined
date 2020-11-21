@@ -34,6 +34,12 @@ module.exports = {
         prismic_token: process.env.PRISMIC_TOKEN,
         collection_prefix: ""
       }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'G-S7K22GX553'
+      }
     }
   ]
 }
